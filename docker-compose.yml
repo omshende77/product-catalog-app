@@ -1,0 +1,17 @@
+services:
+
+  backend:
+    build:
+      context: ./productcatlogapp
+    container_name: backend
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./product-catalog-react
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
